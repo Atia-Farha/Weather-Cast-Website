@@ -13,6 +13,7 @@ btn.addEventListener("click", (e) => {
 
     document.documentElement.style.setProperty('--primary-color', '#e7eff3');
     document.documentElement.style.setProperty('--secondary-color', 'white');
+    document.documentElement.style.setProperty('--text-color', black);
 
     err_weather.textContent = '';
     err_astronomy.textContent = '';
