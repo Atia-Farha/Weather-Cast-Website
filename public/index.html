@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Weather Cast</title>
+    <meta name="description" content="A weather website that shows real-time weather, astronomy, and forecast information for any location worldwide.">
+    <meta name="author" content="Atia Farha">
+
+    <meta property="og:title" content="Weather Cast">
+    <meta property="og:site_name" content="Weather Cast">
+    <meta property="og:description" content="Get real-time weather, astronomy, and forecast information for any location worldwide.">
+    <meta property="og:image" content="assets/preview.png">
+    <meta property="og:image:alt" content="Weather Cast Website Preview Image">
+    <meta property="og:url" content="https://weather-cast.pages.dev/">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Weather Cast">
+    <meta name="twitter:description" content="Get real-time weather, astronomy, and forecast information for any location worldwide.">
+    <meta name="twitter:image" content="assets/preview.png">
+
+    <meta name="expected-hostname" content="https://weather-cast.pages.dev/">
+    <meta name="theme-color" content="#4F5D73">
+
+    <link rel="icon" type="image/svg+xml" href="assets/favicons/favicon.svg">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/favicons/favicon.ico">
+    <link rel="icon" type="image/png" href="assets/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="assets/favicons/favicon-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="assets/favicons/favicon-512x512.png" sizes="512x512">
+    <link rel="apple-touch-icon" type="image/png" href="assets/favicons/apple-touch-icon.png" sizes="180x180">
+    <meta name="apple-mobile-web-app-title" content="Weather">
+
+    <base href="https://weather-cast.pages.dev/">
+    <link rel="canonical" href="https://weather-cast.pages.dev/">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="bingbot" content="index, follow">
+
+    <link rel="stylesheet" href="src/style.css">
+    <script src="src/script.js" defer></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,300,0,0" />
+</head>
+
+<body>
+    <header>
+        <h1 class="web-title">Weather Cast</h1>
+
+        <form>
+            <input type="text" placeholder="Enter city name" id="cityInput">
+
+            <button type="submit" id="btn">⌕</button>
+        </form>
+    </header>
+
+    <article id="error_weather"></article>
+
+    <main>
+        <section class="part-1">
+            <h2>
+                <span id="city">_ _ </span>, <span id="country">_ _</span>
+            </h2>
+
+            <div class="location">
+                <p>Latitude: <span id="lat">_ _</span></p>
+                |
+                <p>Longitude: <span id="lon">_ _</span></p>
+            </div>
+
+            <div id="time">_ _ - _ _ - _ _</div>
+        </section>
+
+        <section class="part-2">
+            <div class="weather-summary">
+                <img id="icon" src="" alt="">
+
+                <h2 class="temperature"><span id="temp">_ _</span> °C</h2>
+                <h2><span id="condition">_ _</span></h2>
+            </div>
+
+            <div class="weather-details">
+                <div>
+                    <span class="material-symbols-outlined">
+                        thermostat
+                    </span>
+                    <p>Feels like: <span id="feels_like">_ _</span> °C</p>
+                </div>
+
+                <div>
+                    <span class="material-symbols-outlined">
+                        tire_repair
+                    </span>
+                    <p>Pressure: <span id="pressure">_ _</span> kPa</p>
+                </div>
+
+                <div>
+                    <span class="material-symbols-outlined">
+                        humidity_percentage
+                    </span>
+                    <p>Humidity: <span id="humidity">_ _</span>%</p>
+                </div>
+
+                <div>
+                    <span class="material-symbols-outlined">
+                        heat
+                    </span>
+                    <p>Heat Index: <span id="heat">_ _</span> °C</p>
+                </div>
+
+                <div>
+                    <span class="material-symbols-outlined">
+                        filter_drama
+                    </span>
+                    <p>Cloudiness: <span id="cloud">_ _</span>%</p>
+                </div>
+
+                <div>
+                    <span class="material-symbols-outlined">
+                        humidity_mid
+                    </span>
+                    <p>Precipitation: <span id="precip">_ _</span> mm</p>
+                </div>
+
+                <div>
+                    <span class="material-symbols-outlined">
+                        visibility
+                    </span>
+                    <p>Visibility: <span id="visibility">_ _</span> km</p>
+                </div>
+
+                <div>
+                    <span class="material-symbols-outlined">
+                        dew_point
+                    </span>
+                    <p>Dew Point: <span id="dewpoint">_ _</span> °C</p>
+                </div>
+
+                <div>
+                    <span class="material-symbols-outlined">
+                        nest_sunblock
+                    </span>
+                    <p>UV Index: <span id="uv">_ _</span></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="part-3">
+            <h2>Wind Info</h2>
+
+            <div class="wind-details">
+                <div>
+                    <span class="material-symbols-outlined big-icon">
+                        airwave
+                    </span>
+                    <p class="title">Wind Direction</p>
+                    <p class="value"><span id="wind_dir">_ _</span> (<span id="wind_degree"> _ _</span>°)</p>
+                </div>
+
+                <div>
+                    <span class="material-symbols-outlined big-icon">
+                        temp_preferences_eco
+                    </span>
+                    <p class="title">Wind Chill</p>
+                    <p class="value"><span id="wind_chill">_ _</span> °C</p>
+                </div>
+
+                <div>
+                    <span class="material-symbols-outlined big-icon">
+                        air
+                    </span>
+                    <p class="title">Wind Speed</p>
+                    <p class="value"><span id="wind_speed">_ _</span> km/h</p>
+                </div>
+
+                <div>
+                    <span class="material-symbols-outlined big-icon">
+                        storm
+                    </span>
+                    <p class="title">Wind Gust</p>
+                    <p class="value"><span id="wind_gust">_ _</span> km/h</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="part-4">
+            <h2>Air Quality</h2>
+
+            <div class="air-quality title">
+                <div>US EPA AQI Index: <span id="us_epa_index" class="value">_ _</span></div>
+                <div>GB Defra AQI Index: <span id="gb_defra_index" class="value">_ _</span></div>
+            </div>
+
+            <div class="air-molecules">
+                <div>CO: <span id="co">_ _</span> μg/m³</div>
+                <div>NO2: <span id="no2">_ _</span> μg/m³</div>
+                <div>O3: <span id="o3">_ _</span> μg/m³</div>
+                <div>SO2: <span id="so2">_ _</span> μg/m³</div>
+                <div>PM10: <span id="pm10">_ _</span> μg/m³</div>
+                <div>PM2.5: <span id="pm2_5">_ _</span> μg/m³</div>
+            </div>
+        </section>
+
+        <section class="part-5">
+            <h2>Astronomy</h2>
+
+            <article id="error_astronomy"></article>
+
+            <div class="astronomy-details">
+                <div>
+                    <span class="material-symbols-outlined big-icon">
+                        water_lux
+                    </span>
+                    <p class="title">Sunrise</p>
+                    <p class="value"><span id="sunrise">_ _</span></p>
+                </div>
+
+                <div>
+                    <span class="material-symbols-outlined big-icon">
+                        wb_twilight
+                    </span>
+                    <p class="title">Sunset</p>
+                    <p class="value"><span id="sunset">_ _</span></p>
+                </div>
+
+                <div>
+                    <span class="material-symbols-outlined big-icon">
+                        moon_stars
+                    </span>
+                    <p class="title">Moonrise</p>
+                    <p class="value"><span id="moonrise">_ _</span></p>
+                </div>
+
+                <div>
+                    <span class="material-symbols-outlined big-icon">
+                        bedtime_off
+                    </span>
+                    <p class="title">Moonset</p>
+                    <p class="value"><span id="moonset">_ _</span></p>
+                </div>
+
+                <div>
+                    <span class="material-symbols-outlined big-icon">
+                        routine
+                    </span>
+                    <p class="title">Moon Phase</p>
+                    <p class="value"><span id="moon_phase">_ _</span></p>
+                </div>
+
+                <div>
+                    <span class="material-symbols-outlined big-icon">
+                        ev_shadow
+                    </span>
+                    <p class="title">Moon Illumination</p>
+                    <p class="value"><span id="moon_illumination">_ _</span>%</p>
+                </div>
+
+                <div>
+                    <span class="material-symbols-outlined big-icon">
+                        light_mode
+                    </span>
+                    <p class="title">Is Sun Up</p>
+                    <p class="value"><span id="is_sun_up">_ _</span></p>
+                </div>
+
+                <div>
+                    <span class="material-symbols-outlined big-icon">
+                        nightlight
+                    </span>
+                    <p class="title">Is Moon Up</p>
+                    <p class="value"><span id="is_moon_up">_ _</span></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="part-6">
+            <h2>Forecast</h2>
+
+            <div class="forecast-details">
+                <div class="forecast-day">
+                    <h3 id="day1">_ _ - _ _ - _ _</h3>
+
+                    <img id="icon1" src="" alt="">
+
+                    <h4 id="condition1">_ _</h4>
+                    <h4><span id="temp1">_ _</span> °C</h4>
+
+                    <div>
+                        <p>Humidity: <span id="humidity1">_ _</span>%</p>
+                        <p>UV Index: <span id="uv1">_ _</span></p>
+                    </div>
+                </div>
+
+                <div class="forecast-day">
+                    <h3 id="day2">_ _ - _ _ - _ _</h3>
+
+                    <img id="icon2" src="" alt="">
+
+                    <h4 id="condition2">_ _</h4>
+                    <h4><span id="temp2">_ _</span> °C</h4>
+
+                    <div>
+                        <p>Humidity: <span id="humidity2">_ _</span>%</p>
+                        <p>UV Index: <span id="uv2">_ _</span></p>
+                    </div>
+                </div>
+
+                <div class="forecast-day">
+                    <h3 id="day3">_ _ - _ _ - _ _</h3>
+
+                    <img id="icon3" src="" alt="">
+
+                    <h4 id="condition3">_ _</h4>
+                    <h4><span id="temp3">_ _</span> °C</h4>
+
+                    <div>
+                        <p>Humidity: <span id="humidity3">_ _</span>%</p>
+                        <p>UV Index: <span id="uv3">_ _</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            &copy; 2025 <a href="https://github.com/atia-farha" target="_blank">Atia Farha</a> | All Rights Reserved
+        </footer>
+    </main>
+</body>
+
+</html>
