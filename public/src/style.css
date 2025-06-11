@@ -48,8 +48,8 @@ form {
 }
 
 input {
-    width: 10em;
-    padding: 0.65em 1em;
+    width: 15em;
+    padding: 9.4px 15px;
     border-radius: 100px 0px 0px 100px;
     border: none;
     outline: none;
@@ -60,13 +60,13 @@ input {
 
 button {
     cursor: pointer;
-    padding: 0 0.4em;
+    padding: 0 10px;
     border-radius: 0px 100px 100px 0px;
     border: none;
     outline: none;
     background-color: var(--primary-color);
     color: var(--text-color);
-    font-size: 2em;
+    font-size: 30px;
     text-align: center;
     transition: opacity 0.3s ease;
 }
@@ -282,7 +282,6 @@ main {
 .part-6 {
     margin-top: 0.5em;
     width: 100%;
-    padding: 0 1em;
     text-align: center;
     display: flex;
     flex-direction: column;

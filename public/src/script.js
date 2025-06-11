@@ -11,6 +11,9 @@ btn.addEventListener("click", (e) => {
     const city = cityInput.value.trim();
     cityInput.value = '';
 
+    document.documentElement.style.setProperty('--primary-color', '#e7eff3');
+    document.documentElement.style.setProperty('--secondary-color', 'white');
+
     err_weather.textContent = '';
     err_astronomy.textContent = '';
     document.getElementById('city').textContent = '_ _ ';
@@ -256,7 +259,7 @@ function weatherDetail(city) {
             document.getElementById('icon1').src = `https:${icon1}`;
             document.getElementById('icon1').style.width = '150px';
             document.getElementById('icon1').style.height = '150px';
-            
+
             const condition1 = data.forecast.forecastday[0].day.condition.text;
             document.getElementById('condition1').textContent = condition1;
             document.getElementById('icon1').alt = condition1;
@@ -278,7 +281,7 @@ function weatherDetail(city) {
             document.getElementById('icon2').src = `https:${icon2}`;
             document.getElementById('icon2').style.width = '150px';
             document.getElementById('icon2').style.height = '150px';
-            
+
             const condition2 = data.forecast.forecastday[1].day.condition.text;
             document.getElementById('condition2').textContent = condition2;
             document.getElementById('icon2').alt = condition2;
@@ -300,7 +303,7 @@ function weatherDetail(city) {
             document.getElementById('icon3').src = `https:${icon3}`;
             document.getElementById('icon3').style.width = '150px';
             document.getElementById('icon3').style.height = '150px';
-            
+
             const condition3 = data.forecast.forecastday[2].day.condition.text;
             document.getElementById('condition3').textContent = condition3;
             document.getElementById('icon3').alt = condition3;
